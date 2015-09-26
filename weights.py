@@ -6,9 +6,8 @@ q=[]
 for i in xrange(qn):
   q.append(map(int,raw_input().split(" ")))
 
-adr=[]
-for i in range(0,qn):
-    adr.append(i)
+adr=[0:qn]
+
 for i in range(0,qn):
 
     w[ q[i][0] -1 ] += w[ q[i][1] -1]
