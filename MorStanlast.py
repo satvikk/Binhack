@@ -1,10 +1,19 @@
-p = 10
-q = 4
-a = [1, 9, 2 ,8, 3, 7, 4, 6, 5, 10]
-l = [4,3,1,8]
-k = [4,2,6,1]
+p, q = map(int, raw_input().strip().split())
+
+a = map(int,raw_input().split(" "))
+
+query2darr = []
+
+for i in xrange(q):
+  query2darr.append(map(int,raw_input().split(" ")))
+
+#print a
+#print query2darr
 count = [0,0,0,0]
 val = [ 0 , 0, 0, 0]
+
+#change l and a ccordingly,you can use debug prints
+
 for i in range(0,len(a)):
     for j in range(0,len(l)):
         if a[i]>=l[j]:
