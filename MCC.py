@@ -19,24 +19,33 @@ print query2darr
 
 
 for L,R in query2darr:
-   print "////////////////////////////////////////////////////////////////////////////////////////////////////////////////",L,R
-   mincounter = []
-   cortana[L-1][1].append(R-1)
-   cortana[R-1][1].append(L-1)
-   print "aaaaaaaaaaaaaaaaaaaaaaaapppppppppppppend",cortana
-   cortana[L-1][2] += cortana[R-1][0]  
-   cortana[R-1][2] = cortana[L-1][2]
-   print "On CONNNNNNNNNNNNNNNNECT LLLLLequal",cortana
-   if len(cortana[L-1][1]) > len(cortana[R-1][1]):
-     for ind in cortana[L-1][1]:
-       cortana[ind][2] = cortana[L-1][2]
-       print "invariant L>R",cortana
-   else:
-     for ind in cortana[R-1][1]:
-       cortana[ind][2] = cortana[R-1][2]
-       print "invariant R>L",cortana
-   for z in xrange(len(cortana)):
-     mincounter.append(cortana[z][2])     
-     minindex = np.argmin(mincounter)
-     print "mincccccccccccccccounter",mincounter
-   print "AAAAAAAAAAAAAAAAAAAAAAAAAAANNNNNNNNNNNNNNNNNNNNNNSSSSSSSSSSSSSSSS",mincounter[minindex]
+   if cortana[L-1][2] != cortana[R-1][2]:
+      print "////////////////////////////////////////////////////////////////////////////////////////////////////////////////",L,R
+      mincounter = []
+      cortana[L-1][1].append(R-1)
+      cortana[R-1][1].append(L-1)
+      print "aaaaaaaaaaaaaaaaaaaaaaaapppppppppppppend",cortana
+      cortana[L-1][2] += cortana[R-1][2]  
+      cortana[R-1][2] = cortana[L-1][2]
+      print "On CONNNNNNNNNNNNNNNNECT LLLLLequal",cortana
+
+      for ind in cortana[L-1][1]:
+          print "iiiiiiiiiiiiiinnnnnnnnnnnnndddddddddd",ind
+          cortana[ind][2] = cortana[L-1][2]
+          for ajax in cortana[ind][1]:
+            cortana[ajax][2] = cortana[L-1][2]
+          print "invar Checking L-1 conn",cortana
+
+      for inda in cortana[R-1][1]:
+          print "iiiiiiiiiiiiiiiiinnnnd",inda
+          cortana[inda][2] = cortana[R-1][2]
+
+          for ajaxa in cortana[ind][1]:
+            cortana[ajaxa][2] = cortana[L-1][2]
+          print "invariant R>L",cortana
+
+      for z in xrange(len(cortana)):
+        mincounter.append(cortana[z][2])     
+        minindex = np.argmin(mincounter)
+        print "mincccccccccccccccounter",mincounter
+        print "AAAAAAAAAAAAAAAAAAAAAAAAAAANNNNNNNNNNNNNNNNNNNNNNSSSSSSSSSSSSSSSS",mincounter[minindex]
