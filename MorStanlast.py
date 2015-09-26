@@ -1,3 +1,5 @@
+import numpy as np
+
 p, q = map(int, raw_input().strip().split())
 
 a = map(int,raw_input().split(" "))
@@ -9,16 +11,28 @@ for i in xrange(q):
 
 #print a
 #print query2darr
-count = [0,0,0,0]
-val = [ 0 , 0, 0, 0]
+
 
 #change l and a ccordingly,you can use debug prints
 
-for i in range(0,len(a)):
-    for j in range(0,len(l)):
-        if a[i]>=l[j]:
-            count[j]+=1
-            if count[j] == k[j]:
-                print a[i]
-          
-        
+maxindex = np.argmax(a)
+max = a[maxindex]
+cortana = [0]*(max+1)
+for i in a:
+  cortana[i] += 1
+  
+
+
+def cortanamax(query2darr,cortana):
+  print query2darr,cortana
+  sum = 0
+  for L,K in query2darr:
+    print L,K
+    for pitr in xrange(L,len(cortana)):
+      print pitr
+      sum = sum + cortana[L]
+      print "after summmmmmmmming",sum
+      if sum == K:
+       return pitr
+    
+cortanamax(query2darr,cortana)
