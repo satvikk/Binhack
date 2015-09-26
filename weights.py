@@ -10,7 +10,8 @@ adr=[]
 for i in range(0,qn):
     adr.append(i)
 for i in range(0,qn):
-
+    if adr[ q[i][0] -1] == adr[ q[i][1] -1]:
+        continue
     w[ q[i][0] -1 ] += w[ q[i][1] -1]
     w[ q[i][1] -1 ] =  w[ q[i][0] -1]
     if adr[q[i][1] -1 ]>adr[q[i][0] -1]: 
