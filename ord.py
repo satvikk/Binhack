@@ -28,7 +28,9 @@ for z in range(0,R):
 
     temp = np.array(osiri.keys())
     cindex = np.where(temp == a[z])[0]
-    print osiri.keys()[cindex+1]
+    #print osiri.keys()[cindex+1]   #prints next string in ranks
+    print cindex 
+    #in case of Ola Question
 
 
     
