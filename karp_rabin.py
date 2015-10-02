@@ -24,3 +24,12 @@ def Rabin_Karp_Matcher(text, pattern, d, q):
     return result
 print (Rabin_Karp_Matcher ("3141592653589793", "26", 257, 11))
 print (Rabin_Karp_Matcher ("xxxxx", "xx", 40999999, 999999937))
+
+
+def naive_search(substring, string):
+    for i in range(len(string)-len(substring)+1):
+        if string[i:i+len(substring)] == substring:
+	    return i
+
+    return -1
+
